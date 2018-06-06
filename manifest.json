@@ -1,0 +1,40 @@
+{
+  "name": "Github Windows startup sounds",
+  "version": "0.0.1",
+  "description":
+    "Listen to a Windows startup sound to remember everyday that Github was acquired by Microsoft!",
+  "permissions": ["declarativeContent", "storage", "*://*.github.com/*"],
+  "web_accessible_resources": [
+    "audio/win95.mp3",
+    "audio/win98.mp3",
+    "audio/winxp.mp3",
+    "audio/vista.mp3"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.github.com/*"],
+      "js": ["ms-github.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/ms-github16.png",
+      "32": "images/ms-github32.png",
+      "48": "images/ms-github48.png",
+      "128": "images/ms-github128.png"
+    }
+  },
+  "icons": {
+    "16": "images/ms-github16.png",
+    "32": "images/ms-github32.png",
+    "48": "images/ms-github48.png",
+    "128": "images/ms-github128.png"
+  },
+  "manifest_version": 2
+}
